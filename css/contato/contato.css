@@ -1,0 +1,92 @@
+/* CSS Corrigido para a Página de Contato */
+
+.contact-section {
+    width: 100%;
+    min-height: calc(100vh - 8vh);
+    padding: 60px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* A CORREÇÃO CRÍTICA ESTÁ AQUI: */
+    position: relative; /* Necessário para o z-index funcionar */
+    z-index: 2;         /* Coloca esta seção na frente do fundo (z-index: 0) */
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 1100px;
+    background: #451A3E;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+/* --- Lado Esquerdo: Informações --- */
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    padding: 40px;
+    background-color: #3D7B80;
+    color: #FFFFFF;
+}
+.contact-info .title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem); color: #FFFFFF; margin-bottom: 15px;
+}
+.contact-info .title span {
+    color: #B1E6D1;
+}
+.contact-info .description {
+    font-size: 1.1rem; color: #270A33; line-height: 1.6; margin-bottom: 40px;
+}
+.info-item {
+    display: flex; align-items: center; margin-bottom: 20px; font-size: 1rem;
+}
+.info-item i {
+    font-size: 1.2rem; color: #B1E6D1; margin-right: 15px; width: 20px; text-align: center;
+}
+.social-media-buttons {
+    margin-top: 30px; display: flex; gap: 20px;
+}
+.social-media-buttons a {
+    color: #B1E6D1; font-size: 1.5rem; transition: transform 0.3s ease;
+}
+.social-media-buttons a:hover {
+    transform: scale(1.2);
+}
+
+/* --- Lado Direito: Formulário --- */
+.contact-form {
+    flex: 1.5;
+    min-width: 320px;
+    padding: 40px;
+}
+.textfield {
+    width: 100%; display: flex; flex-direction: column; margin-bottom: 20px;
+}
+.textfield label {
+    color: #B1E6D1; margin-bottom: 8px; font-weight: 500;
+}
+.textfield input, .textfield textarea {
+    width: 100%; border: none; border-radius: 10px; padding: 15px; background: #270A33; color: #B1E6D1; font-size: 1rem; box-shadow: inset 0px 2px 5px rgba(0,0,0,0.2); outline: none; box-sizing: border-box; font-family: 'Roboto', sans-serif; border: 1px solid #3D7B80;
+}
+.textfield input::placeholder, .textfield textarea::placeholder {
+    color: #77B1A9;
+}
+.textfield textarea {
+    min-height: 120px; resize: vertical;
+}
+.btn-enviar {
+    width: 100%; background: #00faaf; color: #270A33; padding: 16px 0px; border: none; border-radius: 8px; outline: none; text-transform: uppercase; font-weight: 800; letter-spacing: 2px; cursor: pointer; transition: all 0.3s ease;
+}
+.btn-enviar:hover {
+    filter: brightness(1.2);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 900px) {
+    .contact-info { border-radius: 20px 20px 0 0; }
+    .contact-form { border-radius: 0 0 20px 20px; }
+}

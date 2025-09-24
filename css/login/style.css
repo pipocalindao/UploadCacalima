@@ -1,0 +1,201 @@
+/* Estilos Atualizados para a página de Login */
+
+.login-esquerda {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2vw;
+}
+
+.login-esquerda > h1 {
+    color: #B1E6D1;
+    font-size: clamp(2rem, 3vw, 3rem);
+    text-align: center;
+}
+
+.imagem-login {
+    width: 30vw;
+}
+
+.login-direita {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+}
+
+.card-login {
+    width: 80%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 35px;
+    background: #451A3E;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+.card-login > h1 {
+    color: #B1E6D1;
+    font-weight: 800;
+    margin: 0;
+    text-align: center;
+}
+
+.subtitulo {
+    color: #77B1A9;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.textfield {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.textfield label {
+    color: #B1E6D1;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.textfield input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #77B1A9;
+    color: #270A33;
+    font-size: 1rem;
+    box-shadow: inset 0px 2px 5px rgba(0,0,0,0.2);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield input::placeholder {
+    color: #270A3399;
+}
+
+.btn-login {
+    width: 100%;
+    background: #00faaf;
+    color: #270A33;
+    padding: 16px 0px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    filter: brightness(1.2);
+}
+
+.link-cadastro, .link-recuperar {
+    color: #00faaf;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.link-cadastro:hover, .link-recuperar:hover {
+    text-decoration: underline;
+}
+
+.link-recuperar {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #77B1A9;
+}
+
+
+/* Responsividade */
+@media only screen and (max-width: 950px) {
+    .card-login {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .principal {
+        flex-direction: column;
+    }
+    .login-esquerda {
+        width: 100%;
+        height: auto;
+        padding: 40px 0;
+    }
+    .login-esquerda > h1 {
+        display: none;
+    }
+    .login-direita {
+        width: 100%;
+        height: auto;
+    }
+    .imagem-login {
+        width: 50vw;
+    }
+    .card-login {
+        width: 90%;
+    }
+}
+/* ========================================= */
+/* Estilos para a Validação (Correção)      */
+/* ========================================= */
+
+.msg-erro {
+    display: none; /* Começa escondido, como deve ser */
+    width: 100%;
+    color: #ffffff;
+    background: #e74c3c;
+    border-left: 5px solid #c0392b;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-top: 8px; /* Adiciona um espaço do campo de input */
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.msg-erro::before {
+    content: "⚠️ "; /* Ícone de aviso */
+    margin-right: 6px;
+}
+
+/* Estilo para o botão de recuperar senha, que mudou de <a> para <button> */
+.link-recuperar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #77B1A9;
+    font-family: 'Roboto', sans-serif; /* Garante a mesma fonte */
+}
+
+.link-recuperar:hover {
+    text-decoration: underline;
+}
+
+.link-recuperar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-login:disabled {
+    opacity: 0.5; /* Deixa o botão com 50% de opacidade */
+    cursor: not-allowed; /* Mostra um ícone de "proibido" ao passar o mouse */
+}

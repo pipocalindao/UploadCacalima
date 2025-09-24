@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login/style.css">
+    <link rel="stylesheet" href="css/home/header.css">
+    <link rel="stylesheet" href="css/global.css">
+    <title>Login - Caca Lima College</title>
+</head>
+<body>
+  <header>
+      <nav id="nav-bar">
+             <a class="logo"  href="home.html">Caca Lima College</a>
+             <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>          
+                <div class="line3"></div>
+             </div>
+            <ul class ="nav-list">
+                <li><a href="home.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav>
+  </header>
+<main class="principal">
+    <div class="login-esquerda">
+        <h1>BEM-VINDO DE VOLTA!<br>Acesse sua conta para continuar.</h1>    
+        <img src="animacao/bjj.svg" class="imagem-login" alt="logo">
+    </div>   
+
+    <div class="login-direita">
+        <div class="card-login">
+            <h1>Login</h1>
+            <p class="subtitulo">Entre com suas credenciais para acessar a área do atleta.</p>
+
+            <div class="textfield">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="Email" placeholder="Digite seu email" oninput="validaremails()">
+                <div id="invalidemail" class="msg-erro">Email inválido</div>
+                <div id="notemail" class="msg-erro">Email é obrigatório</div>
+            </div>
+
+            <div class="textfield">
+                <label for="senha">Senha</label>
+                <input id="senha" type="password" name="senha" placeholder="Digite sua senha" oninput="validarsenhas()">
+                <div id="notsenha" class="msg-erro">Senha é obrigatória</div>
+                <div id="invalidsenha" class="msg-erro">Senha inválida</div>
+            </div>   
+
+            <button id="login" class="btn-login" type="submit" disabled="true">Entrar</button>  
+            <a class="link-cadastro" href="cadastro.html">Não tem uma conta? Cadastre-se</a>
+            <button id="recuperar" class="link-recuperar" type="submit" disabled="true">Esqueceu sua senha?</button>
+        </div>  
+    </div>     
+</main>
+    <script src="javascript/script.js"></script>
+    <script src="javascript/validacao.js"></script>
+    <script src="javascript/mobile-navbar.js"></script>
+</body>
+</html>

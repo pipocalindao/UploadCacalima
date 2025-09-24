@@ -1,0 +1,106 @@
+/* Estilos para a página de Cadastro */
+
+.card-cadastro {
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 35px;
+    background: #451A3E;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+    margin: 40px 0; /* Espaçamento para telas menores */
+}
+
+.card-cadastro h1 {
+    color: #B1E6D1;
+    font-weight: 800;
+    margin: 0;
+    text-align: center;
+}
+
+.subtitulo {
+    color: #77B1A9;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.textfield {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.textfield label {
+    color: #B1E6D1;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.textfield input, .textfield select {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #77B1A9;
+    color: #270A33;
+    font-size: 1rem;
+    box-shadow: inset 0px 2px 5px rgba(0,0,0,0.2);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield input::placeholder {
+    color: #270A3399;
+}
+
+.textfield-group {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.btn-cadastrar {
+    width: 100%;
+    background: #00faaf;
+    color: #270A33;
+    padding: 16px 0px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cadastrar:hover {
+    filter: brightness(1.2);
+}
+
+.link-login {
+    color: #00faaf;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.link-login:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .textfield-group {
+        flex-direction: column;
+        gap: 0;
+    }
+    .card-cadastro {
+        padding: 30px 25px;
+    }
+}

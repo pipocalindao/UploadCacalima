@@ -1,0 +1,382 @@
+/* ========================================= */
+/* Estilos para a Seção Principal da Home   */
+/* ========================================= */
+.principal-home {
+    height: auto; 
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: visible;
+    overflow-x: hidden;
+}
+#content{
+    position: relative;
+    z-index: 2; /* Garante que o conteúdo fique acima do fundo animado */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#home {
+    /* Centraliza o conteúdo (descrição + botões) e a imagem na horizontal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: calc(100vh - 8vh); /* Altura mínima: tela inteira menos a altura do menu */
+    padding: 28px 8%;
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+    gap: 40px; /* Adiciona espaçamento entre os elementos */
+}
+
+/* O 'cta' agora inclui a descrição e os botões, resolvendo a inconsistência do HTML */
+#cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 1; /* Permite que o CTA cresça para ocupar o espaço disponível */
+    min-width: 280px; /* Garante que o CTA não fique muito pequeno em
+    max-width: 500px; /* Limita a largura para melhor leitura */
+    gap: 28px;
+}
+
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #B1E6D1;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: 2px;
+}
+
+.title span {
+    color:#00d88d; /* Usando a cor de destaque da nossa nova paleta! */
+}
+
+.description {
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: #F4F6F6; /* Cor neutra para texto, mais suave que o branco */
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ========================================= */
+/* Estilos para os Botões e Mídias Sociais  */
+/* ========================================= */
+
+.btn-default, .btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-default {
+    background-color: #77B1A9;
+    color: #270A33;
+    border: 2px solid #77B1A9;
+}
+
+.btn {
+    background-color: transparent;
+    color: #77B1A9;
+    border: 2px solid #77B1A9;
+}
+
+.btn-default:hover, .btn:hover {
+    filter: brightness(1.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.social-media-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    z-index: 3;
+
+}
+
+.social-media-buttons a {
+    color: #B1E6D1;
+    font-size: 24px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-media-buttons a:hover {
+    color: #FF8C42; /* Destaque ao passar o mouse */
+    transform: scale(1.1);
+}
+
+/* ========================================= */
+/* Estilos para a Imagem           */
+/* ========================================= */
+
+#banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+.imagem-professor {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid #77B1A9; /* Borda que combina com a paleta */
+    filter: none; /* Removendo o filtro de cinza para a imagem ficar colorida */
+    transition: transform 0.3s ease;
+    z-index: 2;;
+
+
+        width: 100%;
+    height: auto;
+    border-radius: 8px;
+    filter: brightness(0.7); /* Suaviza a imagem para o tema dark */
+    
+    /* Propriedades da animação */
+    animation: float 6s ease-in-out infinite; /* Aplica a animação */
+}
+
+.imagem-professor:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+
+/* ========================================= */
+/* Estilos Responsivos para Telas Menores  */
+/* ========================================= */
+/* Estilos para a seção principal */
+.about-section {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: #270a3300; /* Cor de fundo (Roxo Escuro) */
+    color: #B1E6D1; /* Cor do texto (Azul-claro) */
+       position: relative; /* Adicione esta linha */
+    z-index: 3; /* E esta linha */
+}
+
+/* Container para centralizar e limitar a largura */
+.about-container {
+    max-width: 800px;
+}
+
+/* Estilo para o título da seção */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Linha de destaque abaixo do título */
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background-color: #3D7B80; /* Cor de destaque (Verde-escuro/Ciano) */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Estilo para o conteúdo (parágrafos) */
+.about-content {
+    text-align: left;
+    line-height: 1.8;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #77B1A9; /* Cor do texto (Verde-claro) */
+}
+
+.about-content p strong {
+    color: #B1E6D1; /* Destaca o texto em negrito com a cor principal */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+    }
+}
+
+/* ========================================= */
+/* Estilos para a Seção de Últimas Notícias  */
+/* ========================================= */
+
+.news-section {
+    width: 100%;
+    padding: 100px 20px;
+    color: #B1E6D1;
+    position: relative;
+    z-index: 3; /* Garante que fique por cima de outros elementos */
+}
+
+.news-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.championship-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout responsivo */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background: #451A3E;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: left;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 40px rgba(0, 250, 175, 0.2);
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    color: #00faaf;
+    margin: 0;
+}
+
+.championship-date {
+    font-size: 0.9rem;
+    color: #77B1A9;
+    margin-top: 5px;
+}
+
+.card-body {
+    margin-top: 20px;
+}
+
+.championship-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    border-top: 1px solid #3D7B80;
+    border-bottom: 1px solid #3D7B80;
+    margin-bottom: 20px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #B1E6D1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #77B1A9;
+}
+
+.card-body h4 {
+    font-size: 1.1rem;
+    color: #B1E6D1;
+    margin-bottom: 15px;
+}
+
+.featured-athletes {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.athlete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.athlete img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00faaf;
+}
+
+.athlete span {
+    font-size: 0.8rem;
+    color: #B1E6D1;
+}
+
+#content.principal-home {
+    background: transparent;
+}
+
+@media (max-width: 999px) {
+    #home {
+        flex-direction: column; /* Organiza os itens em coluna */
+        text-align: center;
+        align-items: center;
+    }
+    #cta {
+        align-items: center;
+    }
+    #cta-buttons {
+        flex-direction: row; /* Botões lado a lado */
+        flex-wrap: wrap; /* Quebra de linha se não couberem */
+        justify-content: center;
+    }
+    .title {
+        letter-spacing: 1px;
+    }
+    .shape{
+  display: none;
+    }
+}
+
+
+@keyframes float {
+    0% {
+        transform: translateY(0px); /* Posição inicial */
+    }
+    50% {
+        transform: translateY(-5px); /* Posição no meio da animação (10px para cima) */
+    }
+    100% {
+        transform: translateY(0px); /* Posição final (volta ao normal) */
+    }
+}
+

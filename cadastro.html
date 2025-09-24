@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Atleta - Caca Lima College</title>
+    <link rel="stylesheet" href="css/home/header.css">
+    <link rel="stylesheet" href="css/login/cadastro.css"> <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+  <header>
+    <nav id="nav-bar">
+        <a class="logo"  href="home.html">Caca Lima College</a>
+        <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>          
+            <div class="line3"></div>
+        </div>
+        <ul class ="nav-list">
+            <li><a href="home.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="index.html">Login</a></li>
+        </ul>
+    </nav>
+  </header>
+
+<main class="principal">
+    <div class="card-cadastro">
+        <h1>Cadastro de Atleta</h1>
+        <p class="subtitulo">Preencha os campos para fazer parte do nosso time.</p>
+
+        <div class="textfield">
+            <label for="nome">Nome Completo</label>
+            <input id="nome" type="text" placeholder="Seu nome completo">
+        </div>
+
+        <div class="textfield">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="seu.email@exemplo.com">
+        </div>
+
+        <div class="textfield-group">
+            <div class="textfield">
+                <label for="senha">Senha</label>
+                <input id="senha" type="password" placeholder="Crie uma senha forte">
+            </div>
+            <div class="textfield">
+                <label for="confirmar-senha">Confirmar Senha</label>
+                <input id="confirmar-senha" type="password" placeholder="Repita a senha">
+            </div>
+        </div>
+
+        <div class="textfield-group">
+            <div class="textfield">
+                <label for="nascimento">Data de Nascimento</label>
+                <input id="nascimento" type="date">
+            </div>
+            <div class="textfield">
+                <label for="faixa">Faixa</label>
+                <select id="faixa">
+                    <option value="branca">Branca</option>
+                    <option value="cinza">Cinza</option>
+                    <option value="amarela">Amarela</option>
+                    <option value="laranja">Laranja</option>
+                    <option value="verde">Verde</option>
+                    <option value="azul">Azul</option>
+                    <option value="roxa">Roxa</option>
+                    <option value="marrom">Marrom</option>
+                    <option value="preta">Preta</option>
+                </select>
+            </div>
+        </div>
+        
+        <button class="btn-cadastrar" type="submit">Finalizar Cadastro</button>  
+        <a class="link-login" href="index.html">Já tem uma conta? Faça o login</a>
+   </div>  
+</main>     
+    <script src="javascript/mobile-navbar.js"></script>
+</body>
+</html>
