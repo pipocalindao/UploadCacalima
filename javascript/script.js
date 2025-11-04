@@ -54,6 +54,10 @@ function validarsenha() { // verifica se a senha e valida
 }
 
 
+function login() {
+window.location.href = "home.html"; // redireciona para a pagina home.html
+
+}
 
 document.getElementById('recuperar').addEventListener('click', function(event) { // apenas um teste para ver se o botao de recuperar senha esta funcionando
     event.preventDefault();
