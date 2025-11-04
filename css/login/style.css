@@ -199,3 +199,12 @@
     opacity: 0.5; /* Deixa o botão com 50% de opacidade */
     cursor: not-allowed; /* Mostra um ícone de "proibido" ao passar o mouse */
 }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #3D7B80;
+    color: #B1E6D1;
+    position: relative;
+    z-index: 10;
+}

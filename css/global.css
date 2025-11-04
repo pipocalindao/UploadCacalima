@@ -61,3 +61,12 @@ body * {
     left: 0;
     z-index: 0; /* Coloca no fundo de tudo */
 }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #3D7B80;
+    color: #B1E6D1;
+    position: relative;
+    z-index: 10;
+}

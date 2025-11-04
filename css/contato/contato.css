@@ -90,3 +90,25 @@
     .contact-info { border-radius: 20px 20px 0 0; }
     .contact-form { border-radius: 0 0 20px 20px; }
 }
+
+/* --- Responsividade --- */
+@media (max-width: 900px) {
+    .contact-info { 
+        border-radius: 20px 20px 0 0; 
+    }
+    .contact-form { 
+        border-radius: 0 0 20px 20px; 
+    }
+}
+
+/* ADICIONE ESTA NOVA REGRA PARA CELULARES */
+@media (max-width: 600px) {
+    .contact-section {
+        padding: 40px 5%; /* Diminui o padding da seção */
+    }
+    .contact-form, .contact-info {
+        /* Remove a largura mínima para empilhar */
+        min-width: 100%; 
+        padding: 30px 25px; /* Diminui o padding interno */
+    }
+}

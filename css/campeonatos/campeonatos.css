@@ -189,12 +189,14 @@ footer{
 }
 /* ...existing code... */
 
+/* Grid de cards */
 .championship-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:var(--gap);
-    align-items:start;
-    grid-auto-rows: 1fr; /* novo: faz cada linha ter altura igual e permite cards com height:100% */
+    display: grid;
+    /* Linha mágica: cria colunas de no mínimo 300px e as encaixa automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--gap);
+    align-items: start;
+    grid-auto-rows: 1fr; 
 }
 
 /* Card */
@@ -254,16 +256,30 @@ footer{
 
 /* ...existing code... */
 
+
+
+/* ... (mantenha o .card e o .card-header) ... */
+
+/* Responsividade */
+/* Não precisamos mais das queries para mudar as colunas! */
+/* Você pode apagar as media queries @media (max-width:1100px) e @media (max-width:640px) que mudavam o grid-template-columns. */
+
+/* Mantenha apenas a query que centraliza o header e ajusta as imagens: */
 @media (max-width:640px){
     .titulos-header{text-align:center}
-    .championship-grid{
-        grid-template-columns:1fr;
-    }
     .featured-athletes .athlete img{
-        width:40px;height:40px; /* responsivo: mantém bom tamanho em mobile */
+        width:40px;height:40px;
     }
     .title{
         font-size:1.6rem;
     }
 }
 /* ...existing code... */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #3D7B80;
+    color: #B1E6D1;
+    position: relative;
+    z-index: 10;
+}
