@@ -1,0 +1,152 @@
+/* CSS para a Página de Materiais */
+
+/* Configuração da página principal para permitir scroll */
+.principal-home {
+    height: auto;
+    min-height: 100vh;
+}
+
+/* Seção que engloba o container */
+.materiais-section-full {
+    width: 100%;
+    padding: 60px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box; 
+}
+
+/* Container principal com o conteúdo */
+.materiais-container-full {
+    width: 100%;
+    max-width: 900px; /* Layout de lista fica melhor mais estreito */
+    background: #451A3E;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+    padding: 40px;
+    text-align: center;
+}
+
+/* Cabeçalho da página (Título e Subtítulo) */
+.materiais-header {
+    margin-bottom: 50px;
+}
+.materiais-header .title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: #B1E6D1;
+    margin-bottom: 10px;
+}
+.materiais-header .title span {
+    color: #00faaf;
+}
+.materiais-header .subtitle {
+    font-size: 1.2rem;
+    color: #77B1A9;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- Layout da Lista de Materiais --- */
+
+/* Container da Lista */
+.material-list {
+    display: flex;
+    flex-direction: column; /* Empilha os itens verticalmente */
+    gap: 20px; /* Espaço entre os itens */
+}
+
+/* O Card do Material */
+.material-item {
+    display: flex;
+    flex-direction: row; /* Layout horizontal */
+    align-items: center; /* Centraliza verticalmente */
+    background: #270A33;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-left: 5px solid #3D7B80;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.material-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 250, 175, 0.1);
+    border-left-color: #00faaf;
+}
+
+/* Ícone (Esquerda) */
+.material-icon {
+    flex-shrink: 0; /* Impede que o ícone encolha */
+    font-size: 2.5rem;
+    color: #00faaf;
+    margin-right: 25px;
+    width: 50px; /* Largura fixa para alinhar */
+    text-align: center;
+}
+
+/* Informações (Meio) */
+.material-info {
+    flex-grow: 1; /* Ocupa o espaço restante */
+    text-align: left;
+}
+
+.material-info h3 {
+    font-size: 1.3rem;
+    color: #B1E6D1;
+    margin: 0 0 5px 0;
+}
+
+.material-info p {
+    font-size: 0.95rem;
+    color: #77B1A9;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Botão (Direita) */
+.btn-download {
+    flex-shrink: 0; /* Impede que o botão encolha */
+    padding: 10px 20px;
+    margin-left: 20px;
+    background: #00faaf;
+    color: #270A33;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: filter 0.3s ease;
+}
+
+.btn-download:hover {
+    filter: brightness(1.2);
+}
+
+/* --- RESPONSIVIDADE (Celular) --- */
+@media (max-width: 600px) {
+    .material-item {
+        flex-direction: column; /* Empilha tudo verticalmente */
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .material-icon {
+        margin-right: 0;
+        margin-bottom: 20px;
+        font-size: 3rem;
+    }
+
+    .material-info {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .btn-download {
+        width: 100%; /* Botão ocupa 100% */
+        margin-left: 0;
+    }
+}

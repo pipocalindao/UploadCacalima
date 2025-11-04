@@ -4,6 +4,7 @@ body {
     margin: 0;
    font-family: 'Roboto', sans-serif;
    background: #270A33; /* Cor sólida de volta */
+   overflow-x: hidden;
 }
 
 body::before { 

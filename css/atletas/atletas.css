@@ -1,0 +1,146 @@
+/* CSS para a Página de Atletas (Layout em Lista) */
+
+/* Configuração da página principal para permitir scroll */
+.principal-home {
+    height: auto;
+    min-height: 100vh;
+}
+
+/* Seção que engloba o container */
+.atletas-section-full {
+    width: 100%;
+    padding: 60px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box; 
+}
+
+/* Container principal com o conteúdo */
+.atletas-container-full {
+    width: 100%;
+    /* Max-width menor, pois listas muito largas ficam ruins de ler */
+    max-width: 900px; 
+    background: #451A3E;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+    padding: 40px;
+    text-align: center;
+}
+
+/* Cabeçalho da página (Título e Subtítulo) */
+.atletas-header {
+    margin-bottom: 50px;
+}
+.atletas-header .title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: #B1E6D1;
+    margin-bottom: 10px;
+}
+.atletas-header .title span {
+    color: #00faaf;
+}
+.atletas-header .subtitle {
+    font-size: 1.2rem;
+    color: #77B1A9;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- NOVO LAYOUT DE LISTA --- */
+
+/* Container da Lista de Atletas */
+.athlete-list {
+    display: flex;
+    flex-direction: column; /* Empilha os cards verticalmente */
+    gap: 20px; /* Espaço entre os cards */
+}
+
+/* O Card do Atleta (Retângulo Horizontal) */
+.athlete-card {
+    display: flex;
+    flex-direction: row; /* Alinha foto (esquerda) e info (direita) */
+    background: #270A33;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-left: 5px solid #3D7B80;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden; /* Importante para a foto não vazar */
+}
+
+.athlete-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 250, 175, 0.1);
+    border-left-color: #00faaf;
+}
+
+/* Foto do Atleta (Esquerda) */
+.athlete-photo {
+    width: 160px; /* Largura fixa para a foto */
+    height: auto; /* A altura se ajustará ao conteúdo */
+    min-height: 180px; /* Altura mínima para cards sem bio */
+    object-fit: cover; /* Garante que a foto cubra a área */
+    flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+/* Informações do Atleta (Direita) */
+.athlete-info {
+    flex-grow: 1; /* Ocupa todo o espaço restante */
+    padding: 25px;
+    text-align: left;
+}
+
+.athlete-info h3 {
+    font-size: 1.5rem;
+    color: #00faaf;
+    margin: 0 0 15px 0;
+}
+
+/* Detalhes (Faixa, Peso, Categoria) */
+.athlete-details {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start; /* Alinha à esquerda */
+    gap: 15px;
+    margin-bottom: 15px;
+    color: #B1E6D1;
+    font-size: 0.9rem;
+}
+
+.athlete-details span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.athlete-details i {
+    color: #77B1A9; /* Cor dos ícones */
+}
+
+/* Bio do Atleta */
+.athlete-info .athlete-bio {
+    font-size: 0.95rem;
+    color: #77B1A9;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- RESPONSIVIDADE (Celular) --- */
+@media (max-width: 600px) {
+    .athlete-card {
+        flex-direction: column; /* Empilha a foto em cima da info */
+    }
+
+    .athlete-photo {
+        width: 100%; /* Foto ocupa 100% da largura */
+        height: 200px; /* Altura fixa para a foto no modo vertical */
+        min-height: 0;
+    }
+
+    .athlete-info {
+        padding: 20px;
+    }
+}

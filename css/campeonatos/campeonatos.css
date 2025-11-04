@@ -1,0 +1,269 @@
+/* Reset e variáveis */
+:root{
+    --bg:#0f1724;
+    --card:#0b1220;
+    --accent:#eab308;
+    --muted:#9aa4b2;
+    --glass: rgba(255,255,255,0.04);
+    --radius:12px;
+    --text:#e6eef6;
+    --shadow: 0 8px 24px rgba(2,6,23,0.6);
+    --gap:18px;
+    --max-width:1200px;
+}
+
+body{
+    margin:0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg, rgba(6,10,18,0.9), rgba(6,10,18,0.95)), var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+}
+
+#particles-js{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+}
+
+/* Container principal */
+.principal{
+    position:relative;
+    z-index:1;
+    padding:80px 20px;
+    display:flex;
+    justify-content:center;
+}
+
+/* Header seção */
+.titulos-container-full{
+    width:100%;
+    max-width:var(--max-width);
+    margin:0 auto;
+}
+
+.titulos-header{
+    text-align:left;
+    margin-bottom:28px;
+}
+.title{
+    font-size:2.2rem;
+    margin:0 0 8px 0;
+    color:var(--text);
+}
+.title span{
+    color:var(--accent);
+}
+.subtitle{
+    color:var(--muted);
+    margin:0;
+}
+
+/* Grid de cards */
+.championship-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:var(--gap);
+    align-items:start;
+}
+
+/* Card */
+.card{
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:var(--radius);
+    padding:18px;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(255,255,255,0.03);
+    transition:transform .18s ease, box-shadow .18s ease;
+    overflow:hidden;
+}
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow: 0 18px 40px rgba(2,6,23,0.7);
+}
+
+.card-header h3{
+    margin:0 0 6px 0;
+    font-size:1.05rem;
+}
+.championship-date{
+    margin:0;
+    color:var(--muted);
+    font-size:0.9rem;
+}
+
+/* Corpo do card */
+.card-body{
+    margin-top:12px;
+}
+.championship-stats{
+    display:flex;
+    gap:12px;
+    margin-bottom:12px;
+}
+.stat{
+    background:var(--glass);
+    padding:8px 12px;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+.stat-number{
+    font-weight:700;
+    font-size:1.05rem;
+    color:var(--accent);
+}
+.stat-label{
+    font-size:0.82rem;
+    color:var(--muted);
+}
+
+/* Atletas destaque */
+.featured-athletes{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:8px;
+}
+.athlete{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    background:rgba(255,255,255,0.02);
+    padding:6px 8px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.02);
+}
+.athlete img{
+    width:48px;
+    height:48px;
+    object-fit:cover;
+    border-radius:8px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.45);
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:22px 12px;
+    color:var(--muted);
+    background:transparent;
+}
+
+/* Responsividade */
+@media (max-width:1100px){
+    .championship-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media (max-width:640px){
+    .titulos-header{text-align:center}
+    .championship-grid{
+        grid-template-columns:1fr;
+    }
+    .featured-athletes .athlete img{
+        width:40px;height:40px;
+    }
+    .title{
+        font-size:1.6rem;
+    }
+}
+
+/* ...existing code... */
+:root{
+    --bg:#0f1724;
+    --card:#0b1220;
+    --accent:#eab308;
+    --muted:#9aa4b2;
+    --glass: rgba(255,255,255,0.04);
+    --radius:12px;
+    --text:#e6eef6;
+    --shadow: 0 8px 24px rgba(2,6,23,0.6);
+    --gap:18px;
+    --max-width:1200px;
+    --athlete-size:56px; /* novo: tamanho padrão das imagens de atleta */
+}
+/* ...existing code... */
+
+.championship-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:var(--gap);
+    align-items:start;
+    grid-auto-rows: 1fr; /* novo: faz cada linha ter altura igual e permite cards com height:100% */
+}
+
+/* Card */
+.card{
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:var(--radius);
+    padding:18px;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(255,255,255,0.03);
+    transition:transform .18s ease, box-shadow .18s ease;
+    overflow:hidden;
+
+    display:flex;              /* novo: layout flex para preencher altura */
+    flex-direction:column;     /* novo */
+    height:100%;               /* novo: faz o card preencher a célula do grid */
+}
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow: 0 18px 40px rgba(2,6,23,0.7);
+}
+
+/* ...existing code... */
+
+.card-body{
+    margin-top:12px;
+
+    flex:1;                    /* novo: faz o body expandir e empurrar elementos para preencher */
+    display:flex;              /* novo: organiza conteúdo interno */
+    flex-direction:column;     /* novo */
+    justify-content:space-between; /* novo: mantém layout consistente entre cards */
+}
+/* ...existing code... */
+
+/* Atletas destaque */
+.featured-athletes{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:8px;
+}
+.athlete{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    background:rgba(255,255,255,0.02);
+    padding:6px 8px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.02);
+}
+.athlete img{
+    width:var(--athlete-size);   /* ajustado para usar variável */
+    height:var(--athlete-size);  /* fixo para manter todas as imagens iguais */
+    object-fit:cover;            /* garante recorte uniforme sem distorcer */
+    border-radius:8px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.45);
+}
+
+/* ...existing code... */
+
+@media (max-width:640px){
+    .titulos-header{text-align:center}
+    .championship-grid{
+        grid-template-columns:1fr;
+    }
+    .featured-athletes .athlete img{
+        width:40px;height:40px; /* responsivo: mantém bom tamanho em mobile */
+    }
+    .title{
+        font-size:1.6rem;
+    }
+}
+/* ...existing code... */
