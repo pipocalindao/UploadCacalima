@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
+html, body {
     margin: 0;
-   font-family: 'Roboto', sans-serif;
-   background: #270A33; /* Cor sólida de volta */
-   overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    background: #270A33; 
+    overflow-x: hidden; /* Impede o scroll horizontal */
+}
+
+/* ... */
+
+.principal {
+  display: flex;
+  width: 100%; /* <-- MUDANÇA PRINCIPAL AQUI */
+  min-height: 100vh; /* Use min-height para permitir que a página cresça */
+  background: #270A33;
+  justify-content: center;
+  align-items: center;
+  /* overflow: hidden; */ /* Remova isso para permitir scroll vertical nas páginas */
 }
 
 body::before { 
@@ -39,16 +51,7 @@ body * {
         background-position: 0% 50%;
     }
 }
-.principal {
-display: flex;
-  width: 100vw;
-  height: 100vh;
-  background: #270A33;
-  justify-content: center;
- 
-  align-items: center;
-  overflow: hidden; /* Evita que o conteúdo ultrapasse a tela */
-}
+
 
 #particles-js {
     position: fixed;
