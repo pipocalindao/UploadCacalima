@@ -70,3 +70,39 @@ footer {
     position: relative;
     z-index: 10;
 }
+
+
+/* --- TELA DE CARREGAMENTO (LOADING) --- */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #270A33; /* Fundo roxo do site */
+    z-index: 9999; /* Fica acima de tudo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(0, 250, 175, 0.2); /* Verde transparente */
+    border-top: 6px solid #00faaf; /* Verde neon */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Classe para esconder a tela suavemente */
+.loading-hidden {
+    opacity: 0;
+    visibility: hidden;
+}

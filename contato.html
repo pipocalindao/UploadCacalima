@@ -12,14 +12,13 @@
 <body>
     <div id="particles-js"></div>
 
-       <header>
+    <header>
         <nav id="nav-bar">
              <a class="logo"  href="/">Caca Lima College</a>
              <div class="mobile-menu">
-             <div class="line1"></div>
-             <div class="line2"></div>          
-            <div class="line3"></div>
-
+                 <div class="line1"></div>
+                 <div class="line2"></div>          
+                 <div class="line3"></div>
              </div>
             <ul class ="nav-list">
                 <li><a href="home.html">Início</a></li>
@@ -38,45 +37,82 @@
         <section class="contact-section">
             <div class="contact-container">
                 <div class="contact-info">
-                    <h1 class="title">Entre em <span>Contato</span></h1>
+                    <h1 class="title">Fale pelo <span>WhatsApp</span></h1>
                     <p class="description">
-                        Tem alguma dúvida, sugestão ou quer apoiar nosso projeto? Fale conosco!
+                        Preencha os dados ao lado e clique em enviar para iniciar uma conversa diretamente no nosso WhatsApp!
                     </p>
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Pindamonhangaba, SP, Brasil</span>
                     </div>
                     <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>marcospaulosiqueirajunior3@gmail.com</span>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(12) 99999-9999</span>
                     </div>
                     <div class="social-media-buttons">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/projetocacalima" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 
-                <form class="contact-form" action="https://formspree.io/f/SUA_URL_AQUI" method="POST">
+                <form class="contact-form" id="form-whatsapp">
                     <div class="textfield">
-                        <label for="nome">Nome Completo</label>
-                        <input id="nome" name="Nome" type="text" placeholder="Seu nome" required>
+                        <label for="nome">Seu Nome</label>
+                        <input id="nome" type="text" placeholder="Como você se chama?" required>
                     </div>
                     <div class="textfield">
-                        <label for="email">Seu E-mail</label>
-                        <input id="email" name="Email" type="email" placeholder="seu.email@exemplo.com" required>
+                        <label for="email">Seu E-mail (Opcional)</label>
+                        <input id="email" type="email" placeholder="Para contato">
                     </div>
                     <div class="textfield">
                         <label for="mensagem">Sua Mensagem</label>
-                        <textarea id="mensagem" name="Mensagem" placeholder="Deixe sua mensagem aqui..." required></textarea>
+                        <textarea id="mensagem" placeholder="Escreva sua dúvida ou assunto..." required></textarea>
                     </div>
-                    <button class="btn-enviar" type="submit">Enviar Mensagem</button>
+                    
+                    <button class="btn-enviar" type="submit">
+                        <i class="fab fa-whatsapp"></i> Enviar para WhatsApp
+                    </button>
                 </form>
             </div>
         </section>
     </main>
 
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <script src="javascript/firebase-init.js"></script>
+    <script src="javascript/controle-acesso.js"></script>
     <script src="javascript/mobile-navbar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="javascript/particles-config.js"></script>
+
+    <script>
+        document.getElementById('form-whatsapp').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede a página de recarregar
+
+            // 1. CONFIGURE SEU NÚMERO AQUI (Apenas números, com DDD)
+            // Exemplo: 55 (Brasil) + 12 (DDD) + 999998888
+            const numeroTelefone = "5512992507147"; 
+
+            // 2. Pega os valores dos campos
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            // 3. Monta o texto da mensagem
+            // \n serve para pular linha
+            let texto = `*Olá! Vim pelo site Caca Lima College.*%0A%0A`;
+            texto += `*Nome:* ${nome}%0A`;
+            if(email) texto += `*Email:* ${email}%0A`;
+            texto += `*Mensagem:*%0A${mensagem}`;
+
+            // 4. Cria o link do WhatsApp
+            // encodeURIComponent garante que acentos e espaços funcionem no link
+            const url = `https://wa.me/${numeroTelefone}?text=${texto}`;
+
+            // 5. Abre o WhatsApp em uma nova aba
+            window.open(url, '_blank');
+        });
+    </script>
 </body>
 </html>

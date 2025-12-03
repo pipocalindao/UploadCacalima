@@ -21,5 +21,4 @@ const auth = firebase.auth();
 // 3. Inicializa o Firestore (Banco de Dados)
 const db = firebase.firestore();
 
-// 4. Inicializa o Storage (Arquivos)
-const storage = firebase.storage()
+

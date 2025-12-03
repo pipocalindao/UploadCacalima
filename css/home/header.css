@@ -130,4 +130,103 @@ nav{
 
     }
 
+    /* --- Estilos do Perfil no Menu --- */
+
+/* Container que segura o nome e a foto */
+.user-menu-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    position: relative; /* Importante para o menu de sair ficar preso aqui */
+    padding: 5px 10px;
+    border-radius: 30px;
+    transition: background 0.3s ease;
+}
+
+/* Adicione ou substitua no final do arquivo: */
+
+.user-menu-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 30px;
+    transition: background 0.3s ease;
     
+    /* Joga o perfil mais para a direita, separando do menu */
+    margin-left: 30px; 
+}
+
+.user-menu-container:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.user-name {
+    color: #B1E6D1;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    white-space: nowrap; /* Garante que o nome não quebre linha */
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00faaf;
+    box-shadow: 0 0 10px rgba(0, 250, 175, 0.3);
+}
+
+/* Dropdown de Sair */
+.logout-dropdown {
+    display: none;
+    position: absolute;
+    top: 125%; /* Um pouquinho mais para baixo para não colar */
+    right: 0;
+    background-color: #451A3E;
+    min-width: 150px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid #77B1A9;
+    padding: 10px;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Setinha do Dropdown */
+.logout-dropdown::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 15px;
+    width: 0; 
+    height: 0; 
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #77B1A9;
+}
+
+.logout-dropdown a {
+    display: block;
+    color: #B1E6D1;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.logout-dropdown a:hover {
+    background-color: #00faaf;
+    color: #270A33;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
