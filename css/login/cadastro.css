@@ -82,6 +82,11 @@
     filter: brightness(1.2);
 }
 
+.btn-cadastrar:disabled {
+    background: #00faaf88;
+    cursor: not-allowed;
+    filter: none;
+}
 .link-login {
     color: #00faaf;
     text-decoration: none;

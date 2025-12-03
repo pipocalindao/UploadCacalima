@@ -1,6 +1,5 @@
-
-/*
-const form = {    //pra nao ter de ficar chamando o getElementById toda hora crio um objeto com as referencias
+// Objeto 'form' para referenciar os elementos do HTML
+const form = {
     email: document.getElementById('email'),
     senha: document.getElementById('senha'),
     recuperarsenha: document.getElementById('recuperar'),
@@ -8,156 +7,124 @@ const form = {    //pra nao ter de ficar chamando o getElementById toda hora cri
     emailinvalido: document.getElementById('invalidemail'),
     emailvazio: document.getElementById('notemail'),
     senhavazia: document.getElementById('notsenha')
+};
+
+// Funções de validação chamadas pelos inputs
+function validaremails() {
+    alternarbotoesativos();
+    errosdeemail();
+}
+function validarsenhas() {
+    alternarbotoesativos();
+    errosdesenha();
 }
 
-function validaremails(){ alternarbotoesativos(), errosdeemail();} // chamo as funcoes de validacao e erro e alternacao de botoes disponiveis
-function validarsenhas() { alternarbotoesativos(),  errosdesenha();}// chamo as funcoes de validacao e erro e alternacao de botoes disponiveis
-    
-
-
-function alternarbotoesativos() { // habilita ou desabilita os botoes de login e recuperar senha
+// Habilita/desabilita botões e mostra erros
+function alternarbotoesativos() {
     const emailval = emailvalido();
-    form.recuperarsenha.disabled = !emailval; // habilita o botao de recuperar senha se o email for valido
-    form.login.disabled = !emailval || !validarsenha(); // habilita o botao de login se o email e senha forem validos
+    
+    // Verifica se os elementos existem na página antes de tentar usá-los
+    if (form.recuperarsenha) {
+         form.recuperarsenha.disabled = !emailval;
+    }
+    if (form.login) {
+        form.login.disabled = !emailval || !validarsenha();
+    }
 
-     if (!form.email.value) { // esconde as mensagens de erro apos 3 segundos se o campo estiver vazio
+    if (form.emailvazio && !form.email.value) {
         setTimeout(() => {
-            form.emailvazio.style.display = "none";
+            if (form.emailvazio) form.emailvazio.style.display = "none";
         }, 3000);
     }
-     if (!form.senha.value) { // esconde as mensagens de erro apos 3 segundos se o campo estiver vazio
+    if (form.senhavazia && !form.senha.value) {
         setTimeout(() => {
-            form.senhavazia.style.display = "none";
+            if (form.senhavazia) form.senhavazia.style.display = "none";
         }, 3000);
     }
 }
 
-function emailvalido() { // verifica se o email e valido
+// Verifica se o email é válido
+function emailvalido() {
     const email = form.email.value;
     if (!email) return false;
-    return validadeEmail(email);
+    return validadeEmail(email); // Função do arquivo validacao.js
 }
 
-function errosdeemail() { // mostra ou esconde as mensagens de erro de email
+// Funções que mostram/escondem mensagens de erro
+function errosdeemail() {
     const email = form.email.value;
-    form.emailvazio.style.display = email ? "none" : "block";
-    form.emailinvalido.style.display = (email && !validadeEmail(email)) ? "block" : "none";
+    if (form.emailvazio) {
+        form.emailvazio.style.display = email ? "none" : "block";
+    }
+    if (form.emailinvalido) {
+        form.emailinvalido.style.display = (email && !validadeEmail(email)) ? "block" : "none";
+    }
 }
 
-function errosdesenha() { // mostra ou esconde as mensagens de erro de senha
+function errosdesenha() {
     const senha = form.senha.value;
-    form.senhavazia.style.display = senha ? "none" : "block";
+    if (form.senhavazia) {
+        form.senhavazia.style.display = senha ? "none" : "block";
+    }
 }
 
-function validarsenha() { // verifica se a senha e valida
+// Verifica se a senha não está vazia
+function validarsenha() {
     const senha = form.senha.value;
     if (!senha) return false;
     return true;
 }
 
-
-function login() {
-  firebase.auth().signInWithEmailAndPassword(form.email().value, form.senha().value).then(response => {
-    window.location.href = "home.html"; // redireciona para a pagina home.html
-    }).catch(error => { 
-        console.error("Erro ao logar o usuário:", error);
-    }
-  )
-
-
-
-
-}
-
-function cadastro() {
-window.location.href = "cadastro.html"; // redireciona para a pagina home.html
-
-}
-document.getElementById('recuperar').addEventListener('click', function(event) { // apenas um teste para ver se o botao de recuperar senha esta funcionando
-    event.preventDefault();
-    alert('Botão de recuperar senha funcionando!');
-});
-*/
-// ...existing code...
-const form = {    //pra nao ter de ficar chamando o getElementById toda hora crio um objeto com as referencias
-    email: document.getElementById('email'),
-    senha: document.getElementById('senha'),
-    recuperarsenha: document.getElementById('recuperar'),
-    login: document.getElementById('login'),
-    emailinvalido: document.getElementById('invalidemail'),
-    emailvazio: document.getElementById('notemail'),
-    senhavazia: document.getElementById('notsenha')
-}
-
-function validaremails(){ alternarbotoesativos(), errosdeemail();} // chamo as funcoes de validacao e erro e alternacao de botoes disponiveis
-function validarsenhas() { alternarbotoesativos(),  errosdesenha();}// chamo as funcoes de validacao e erro e alternacao de botoes disponiveis
-    
-
-
-function alternarbotoesativos() { // habilita ou desabilita os botoes de login e recuperar senha
-    const emailval = emailvalido();
-    form.recuperarsenha.disabled = !emailval; // habilita o botao de recuperar senha se o email for valido
-    form.login.disabled = !emailval || !validarsenha(); // habilita o botao de login se o email e senha forem validos
-
-     if (!form.email.value) { // esconde as mensagens de erro apos 3 segundos se o campo estiver vazio
-        setTimeout(() => {
-            form.emailvazio.style.display = "none";
-        }, 3000);
-    }
-     if (!form.senha.value) { // esconde as mensagens de erro apos 3 segundos se o campo estiver vazio
-        setTimeout(() => {
-            form.senhavazia.style.display = "none";
-        }, 3000);
-    }
-}
-
-function emailvalido() { // verifica se o email e valido
-    const email = form.email.value;
-    if (!email) return false;
-    return validadeEmail(email);
-}
-
-function errosdeemail() { // mostra ou esconde as mensagens de erro de email
-    const email = form.email.value;
-    form.emailvazio.style.display = email ? "none" : "block";
-    form.emailinvalido.style.display = (email && !validadeEmail(email)) ? "block" : "none";
-}
-
-function errosdesenha() { // mostra ou esconde as mensagens de erro de senha
-    const senha = form.senha.value;
-    form.senhavazia.style.display = senha ? "none" : "block";
-}
-
-function validarsenha() { // verifica se a senha e valida
-    const senha = form.senha.value;
-    if (!senha) return false;
-    return true;
-}
-
-
+// --- Função de Login ---
 function login(event) {
   if (event && event.preventDefault) event.preventDefault();
-  // CORREÇÃO: usar signInWithEmailAndPassword e acessar .value dos inputs
+  
   firebase.auth().signInWithEmailAndPassword(form.email.value, form.senha.value)
     .then(response => {
       window.location.href = "home.html";
     })
     .catch(error => {
       console.error("Erro ao logar o usuário:", error);
+      alert(GetErrorMessage(error));
+    });
+}
+function GetErrorMessage(error) {
+if (error == "auth/user-not-found") {
+    return "Usuário não encontrado.";
+}
+return error.message
+}
+// --- Botão Recuperar Senha ---
+
+function recuperarSenha() {
+    alert("Enviando email de recuperação de senha...");
+    console.log("Enviando email de recuperação de senha para:", form.email.value);
+    firebase.auth().sendPasswordResetEmail(form.email.value)
+    .then(() => {
+      alert("Email de recuperação de senha enviado!");
+    }
+    )
+    .catch((error) => {
+      console.error("Erro ao enviar email de recuperação de senha:", error);
+      alert(GetErrorMessage(error));
+    });
+} 
+
+// Adiciona o 'listener' APENAS se o botão existir na página
+const btnRecuperar = document.getElementById('recuperar');
+if (btnRecuperar) {
+    btnRecuperar.addEventListener('click', function(event) {
+        event.preventDefault(); // opcional se type="button"
+        // só chama se o botão estiver habilitado e um email válido estiver preenchido
+        if (!btnRecuperar.disabled) {
+            recuperarSenha();
+        }
     });
 }
 
-function cadastro() {
-  window.location.href = "cadastro.html"; // redireciona para a pagina cadastro.html
+
+// --- Botão Login ---
+// Adiciona o 'listener' APENAS se o botão existir na página
+if (document.getElementById('login')) {
+    document.getElementById('login').addEventListener('click', login);
 }
-
-document.getElementById('recuperar').addEventListener('click', function(event) { // apenas um teste para ver se o botao de recuperar senha esta funcionando
-    event.preventDefault();
-    alert('Botão de recuperar senha funcionando!');
-});
-
-// Anexa as funções ao objeto form para que chamadas como form.validaremails() funcionem (se seu HTML usa isso)
-form.validaremails = validaremails;
-form.validarsenhas = validarsenhas;
-form.login = login;
-// ...existing code...

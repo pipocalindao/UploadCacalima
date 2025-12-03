@@ -35,35 +35,37 @@
         <h1>Cadastro de Atleta</h1>
         <p class="subtitulo">Preencha os campos para fazer parte do nosso time.</p>
 
+        <!-- ...existing code... -->
         <div class="textfield">
             <label for="nome">Nome Completo</label>
-            <input id="nome" type="text" placeholder="Seu nome completo">
+            <input id="nome" type="text" placeholder="Seu nome completo" oninput="onChangeNome()">
         </div>
 
         <div class="textfield">
             <label for="email">Email</label>
-            <input id="email" type="email" placeholder="seu.email@exemplo.com">
+            <input id="email" type="email" placeholder="seu.email@exemplo.com" oninput="onChangeEmail()">
         </div>
 
         <div class="textfield-group">
             <div class="textfield">
                 <label for="senha">Senha</label>
-                <input id="senha" type="password" placeholder="Crie uma senha forte">
+                <input id="senha" type="password" placeholder="Crie uma senha forte" oninput="onChangeSenha()">
             </div>
             <div class="textfield">
                 <label for="confirmar-senha">Confirmar Senha</label>
-                <input id="confirmar-senha" type="password" placeholder="Repita a senha">
+                <input id="confirmar-senha" type="password" placeholder="Repita a senha" oninput="onChangeConfirmaSenha()">
             </div>
         </div>
 
         <div class="textfield-group">
             <div class="textfield">
                 <label for="nascimento">Data de Nascimento</label>
-                <input id="nascimento" type="date">
+                <input id="nascimento" type="date" oninput="onChangeDataNascimento()">
             </div>
             <div class="textfield">
                 <label for="faixa">Faixa</label>
-                <select id="faixa">
+                <select id="faixa" oninput="onChangeFaixa()">
+                    <option value="">Selecione uma faixa</option>
                     <option value="branca">Branca</option>
                     <option value="cinza">Cinza</option>
                     <option value="amarela">Amarela</option>
@@ -77,10 +79,15 @@
             </div>
         </div>
         
-        <button class="btn-cadastrar" type="submit">Finalizar Cadastro</button>  
+        <button class="btn-cadastrar" type="button" onclick="registrar()" disabled id="RegisterBtn">Finalizar Cadastro</button>  
         <a class="link-login" href="index.html">Já tem uma conta? Faça o login</a>
+<!-- ...existing code... -->
    </div>  
 </main>     
     <script src="javascript/mobile-navbar.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-app-compat.js" ></script>
+    <script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-auth-compat.js" ></script>
+    <script src="javascript/script-init.js"></script>
+    <script src="javascript/registo.js"></script>
 </body>
 </html>
