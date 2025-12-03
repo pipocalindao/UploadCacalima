@@ -1,56 +1,21 @@
-let form = {};
+// Objeto para referenciar elementos do HTML
+const form = {
+    nome: document.getElementById('nome'),
+    email: document.getElementById('email'),
+    senha: document.getElementById('senha'),
+    confirmaSenha: document.getElementById('confirmar-senha'),
+    dataNascimento: document.getElementById('nascimento'),
+    faixa: document.getElementById('faixa'),
+    btnRegistro: document.getElementById('RegisterBtn')
+};
 
+// Validar email
 function validadeEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
 }
 
-function inicializarForm() {
-    form = {
-        nome: document.getElementById('nome'),
-        email: document.getElementById('email'),
-        senha: document.getElementById('senha'),
-        confirmaSenha: document.getElementById('confirmar-senha'),
-        dataNascimento: document.getElementById('nascimento'),
-        faixa: document.getElementById('faixa'),
-        btnRegistro: document.getElementById('RegisterBtn')
-    };
-    
-    console.log("Form inicializado:", form);
-    registroAbilitarBtn();
-}
-
-function registroAbilitarBtn() {
-    if (!form.btnRegistro) return; // proteção caso form não esteja pronto
-    
-    if (CadastroValido()) {
-        form.btnRegistro.disabled = false;
-    } else {
-        form.btnRegistro.disabled = true;
-    }
-}
-
-function CadastroValido() {
-    if (!form.nome) return false; // proteção caso form não esteja pronto
-    
-    const nome = form.nome.value.trim();
-    const email = form.email.value.trim();
-    const senha = form.senha.value;
-    const confirmaSenha = form.confirmaSenha.value;
-    const nascimento = form.dataNascimento.value;
-    const faixa = form.faixa.value;
-
-    if (!nome || nome.length < 3) return false;
-    if (!validadeEmail(email)) return false;
-    if (!senha || senha.length < 6) return false;
-    if (!confirmaSenha || confirmaSenha.length < 6) return false;
-    if (senha !== confirmaSenha) return false;
-    if (!nascimento) return false;
-    if (!faixa) return false;
-
-    return true;
-}
-
+// Funções chamadas pelos inputs (onchange)
 function onChangeNome() {
     registroAbilitarBtn();
 }
@@ -75,12 +40,39 @@ function onChangeFaixa() {
     registroAbilitarBtn();
 }
 
-function registrar() {
-    if (!CadastroValido()) {
-        alert("Preencha todos os campos corretamente");
-        return;
+// Função que habilita/desabilita o botão
+function registroAbilitarBtn() {
+    if (CadastroValido()) {
+        form.btnRegistro.disabled = false;
+    } else {
+        form.btnRegistro.disabled = true;
     }
+}
 
+// Função que valida todos os campos
+function CadastroValido() {
+    const email = form.email.value.trim();
+    const senha = form.senha.value;
+    const confirmaSenha = form.confirmaSenha.value;
+    const nascimento = form.dataNascimento.value;
+    const nome = form.nome.value.trim();
+    const faixa = form.faixa.value;
+
+    // Valida cada campo
+    if (!nome || nome.length < 3) return false;
+    if (!validadeEmail(email)) return false;
+    if (!senha || senha.length < 6) return false;
+    if (!confirmaSenha || confirmaSenha.length < 6) return false;
+    if (senha !== confirmaSenha) return false;
+    if (!nascimento) return false;
+    if (!faixa) return false;
+
+    return true;
+}
+
+// Função de registro (Firebase)
+function registrar() {
+    alert("Iniciando registro...");
     const nome = form.nome.value.trim();
     const email = form.email.value.trim();
     const senha = form.senha.value;
@@ -102,10 +94,5 @@ function registrar() {
         });
 }
 
-// IMPORTANTE: roda DEPOIS que todo HTML foi carregado
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', inicializarForm);
-} else {
-    // se o script foi carregado depois do DOMContentLoaded
-    inicializarForm();
-}
+// Valida ao carregar a página
+document.addEventListener('DOMContentLoaded', registroAbilitarBtn);

@@ -34,37 +34,41 @@
     <div class="card-cadastro">
         <h1>Cadastro de Atleta</h1>
         <p class="subtitulo">Preencha os campos para fazer parte do nosso time.</p>
+          <div class="textfield">
+            <label for="foto-perfil">Foto de Perfil</label>
+            <input id="foto-perfil" type="file" accept="image/*" style="padding: 10px; background: #77B1A9; color: #270A33;">
+        </div>
 
-        <!-- ...existing code... -->
+
         <div class="textfield">
             <label for="nome">Nome Completo</label>
-            <input id="nome" type="text" placeholder="Seu nome completo" oninput="onChangeNome()">
+            <input id="nome" type="text" placeholder="Seu nome completo" onchange="onChangeNome()">
         </div>
 
         <div class="textfield">
             <label for="email">Email</label>
-            <input id="email" type="email" placeholder="seu.email@exemplo.com" oninput="onChangeEmail()">
+            <input id="email" type="email" placeholder="seu.email@exemplo.com" onchange="onChangeEmail()">
         </div>
 
         <div class="textfield-group">
             <div class="textfield">
                 <label for="senha">Senha</label>
-                <input id="senha" type="password" placeholder="Crie uma senha forte" oninput="onChangeSenha()">
+                <input id="senha" type="password" placeholder="Crie uma senha forte" onchange="onChangeSenha()">
             </div>
             <div class="textfield">
                 <label for="confirmar-senha">Confirmar Senha</label>
-                <input id="confirmar-senha" type="password" placeholder="Repita a senha" oninput="onChangeConfirmaSenha()">
+                <input id="confirmar-senha" type="password" placeholder="Repita a senha" onchange="onChangeConfirmaSenha()">
             </div>
         </div>
 
         <div class="textfield-group">
             <div class="textfield">
                 <label for="nascimento">Data de Nascimento</label>
-                <input id="nascimento" type="date" oninput="onChangeDataNascimento()">
+                <input id="nascimento" type="date" onchange="onChangeDataNascimento()">
             </div>
             <div class="textfield">
                 <label for="faixa">Faixa</label>
-                <select id="faixa" oninput="onChangeFaixa()">
+                <select id="faixa" onchange="onChangeFaixa()">
                     <option value="">Selecione uma faixa</option>
                     <option value="branca">Branca</option>
                     <option value="cinza">Cinza</option>
@@ -79,15 +83,18 @@
             </div>
         </div>
         
-        <button class="btn-cadastrar" type="button" onclick="registrar()" disabled id="RegisterBtn">Finalizar Cadastro</button>  
+        <button class="btn-cadastrar" type="button" onclick= "registrar()" disabled id="RegisterBtn">Finalizar Cadastro</button>  
         <a class="link-login" href="index.html">Já tem uma conta? Faça o login</a>
-<!-- ...existing code... -->
    </div>  
 </main>     
-    <script src="javascript/mobile-navbar.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-app-compat.js" ></script>
+
+<script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-app-compat.js" ></script>
     <script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-auth-compat.js" ></script>
-    <script src="javascript/script-init.js"></script>
-    <script src="javascript/registo.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore-compat.js" ></script>
+    <script src="javascript/firebase-init.js"></script>
+    <script src="javascript/mobile-navbar.js"></script>
+     
+
+    <script src="javascript/registro.js"></script>
 </body>
 </html>
